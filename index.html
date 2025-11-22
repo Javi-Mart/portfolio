@@ -214,4 +214,600 @@
       background: rgba(15, 23, 42, 0.8);
       color: var(--muted);
       text-transform: uppercase;
-      letter-s
+      letter-spacing: 0.16em;
+    }
+
+    .pill.accent {
+      border-color: rgba(56, 189, 248, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      font-size: 13px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .btn.primary {
+      border-color: rgba(56, 189, 248, 0.9);
+      background: linear-gradient(135deg, #06b6d4, #38bdf8, #4f46e5);
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 38px rgba(15, 23, 42, 0.75);
+    }
+
+    .hero-preview-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.16), transparent 55%), #020617;
+      padding: 18px 18px 16px;
+      min-height: 230px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-preview-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-preview-main {
+      margin-top: 6px;
+    }
+
+    .hero-preview-main h3 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .hero-preview-main p {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 320px;
+      margin-bottom: 12px;
+    }
+
+    .hero-preview-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-preview-meta span {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(30, 64, 175, 0.8);
+    }
+
+    /* Sección skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      padding: 14px 14px 13px;
+    }
+
+    .skill-card h3 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .skill-card small {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .skill-tag {
+      font-size: 11px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    /* Sección proyectos */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 190px;
+    }
+
+    .project-thumb {
+      height: 120px;
+      background: linear-gradient(135deg, #0f172a, #1d2437);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-thumb::before,
+    .project-thumb::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(28px);
+      opacity: 0.8;
+    }
+
+    .project-thumb::before {
+      width: 180px;
+      height: 180px;
+      background: rgba(56, 189, 248, 0.8);
+      top: -60px;
+      left: -40px;
+    }
+
+    .project-thumb::after {
+      width: 200px;
+      height: 200px;
+      background: rgba(129, 140, 248, 0.85);
+      bottom: -80px;
+      right: -40px;
+    }
+
+    .project-content {
+      padding: 12px 13px 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .project-title {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .project-type {
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.7);
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.95);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-tag {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .project-link {
+      font-size: 11px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Contacto */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .contact-main {
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .contact-main p {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 420px;
+      margin-bottom: 10px;
+    }
+
+    .contact-highlight {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .contact-highlight span {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .contact-list a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-list a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-pill {
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      max-width: 260px;
+    }
+
+    footer {
+      margin-top: 18px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-preview-card {
+        order: -1;
+      }
+
+      .section-heading-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .section-subtitle {
+        text-align: left;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header>
+      <div class="brand">
+        <div class="brand-logo">JM</div>
+        <div class="brand-text">
+          <span>Javier Martínez</span>
+          <span>Graphic Designer · Technical Artist</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">Sobre mí</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#contact" class="primary">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div>
+          <p class="section-title">Portfolio · Preview</p>
+          <h1 class="hero-title">
+            Diseñador gráfico & <span>Artista técnico</span>
+          </h1>
+          <p class="hero-subtitle">
+            Combino dirección de arte, diseño gráfico y pipelines técnicos para
+            crear experiencias visuales consistentes, optimizadas y listas para producción.
+          </p>
+
+          <div class="pill-row">
+            <span class="pill accent">Branding & Visual Design</span>
+            <span class="pill">Technical Art · 3D · Shaders</span>
+            <span class="pill">Game / Real-time pipelines</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn primary">
+              Ver proyectos destacados
+            </a>
+            <a href="#contact" class="btn">
+              Descargar CV (próximamente)
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-preview-card">
+          <div class="hero-preview-tag">
+            <span>Preview layout</span>
+            <span>v0.1 · GitHub Pages</span>
+          </div>
+          <div class="hero-preview-main">
+            <h3>Sección destacada — Case Study</h3>
+            <p>
+              Aquí podrías mostrar un proyecto clave mezclando dirección de arte,
+              diseño de interfaz y soluciones técnicas (por ejemplo, shaders, rigs,
+              o automatizaciones de pipeline).
+            </p>
+            <div class="hero-preview-meta">
+              <span>Graphic Design</span>
+              <span>Technical Art</span>
+              <span>Game Ready</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOBRE MÍ / SKILLS -->
+      <section id="about">
+        <div class="section-heading-row">
+          <div>
+            <p class="section-title">Sobre mí</p>
+            <h2>Diseño + Tecnología</h2>
+          </div>
+          <p class="section-subtitle">
+            Un breve resumen de quién eres, tu experiencia en diseño gráfico,
+            technical art, y cómo conectas ambos mundos en proyectos reales.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <small>Especialidad</small>
+            <h3>Diseño gráfico & branding</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Identidad visual</span>
+              <span class="skill-tag">Sistemas gráficos</span>
+              <span class="skill-tag">Tipografía</span>
+              <span class="skill-tag">Dirección de arte</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <small>Especialidad</small>
+            <h3>Technical Art & 3D</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Blender / Maya</span>
+              <span class="skill-tag">Shaders & materiales</span>
+              <span class="skill-tag">Optimización</span>
+              <span class="skill-tag">Automatización</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <small>Stack</small>
+            <h3>Herramientas & Pipeline</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Adobe CC / Figma</span>
+              <span class="skill-tag">Blender / Roblox Studio</span>
+              <span class="skill-tag">GitHub / Notion</span>
+              <span class="skill-tag">Python / Lua / JS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROYECTOS -->
+      <section id="projects">
+        <div class="section-heading-row">
+          <div>
+            <p class="section-title">Proyectos</p>
+            <h2>Selección de trabajos</h2>
+          </div>
+          <p class="section-subtitle">
+            Una vista rápida a proyectos de branding, dirección de arte,
+            assets 3D y soluciones técnicas para producción.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Proyecto 1 -->
+          <article class="project-card">
+            <div class="project-thumb"></div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">Proyecto 01 · Branding + UI</h3>
+                <span class="project-type">Graphic Design</span>
+              </div>
+              <p class="project-desc">
+                Sistema de identidad visual y UI kit para una plataforma digital.
+                Enfoque en consistencia tipográfica, color y componentes.
+              </p>
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="project-tag">Branding</span>
+                  <span class="project-tag">UI/UX</span>
+                </div>
+                <a href="#" class="project-link">Ver caso (pronto)</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto 2 -->
+          <article class="project-card">
+            <div class="project-thumb"></div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">Proyecto 02 · Technical Art</h3>
+                <span class="project-type">Tech Art</span>
+              </div>
+              <p class="project-desc">
+                Setup de materiales, iluminación y optimización para entorno en tiempo real,
+                integrando arte y performance.
+              </p>
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="project-tag">Shaders</span>
+                  <span class="project-tag">3D</span>
+                  <span class="project-tag">Real-time</span>
+                </div>
+                <a href="#" class="project-link">Ver breakdown (pronto)</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto 3 -->
+          <article class="project-card">
+            <div class="project-thumb"></div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">Proyecto 03 · Pipeline</h3>
+                <span class="project-type">Tools</span>
+              </div>
+              <p class="project-desc">
+                Herramientas personalizadas y automatización para acelerar el flujo de trabajo
+                de arte (naming, exports, organización de assets).
+              </p>
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="project-tag">Automation</span>
+                  <span class="project-tag">Python / Lua</span>
+                </div>
+                <a href="#" class="project-link">Repo (pronto)</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACTO -->
+      <section id="contact">
+        <div class="section-heading-row">
+          <div>
+            <p class="section-title">Contacto</p>
+            <h2>Trabajemos juntos</h2>
+          </div>
+          <p class="section-subtitle">
+            Ideal para dejar forma de contacto directa y links a redes profesionales
+            (Behance, ArtStation, GitHub, LinkedIn, etc.).
+          </p>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-main">
+            <p class="contact-highlight">
+              ¿Tienes un proyecto que combine <span>diseño</span> y
+              <span>tecnología</span>?
+            </p>
+            <p>
+              Estoy abierto a colaborar en branding, diseño de producto digital,
+              entornos 3D y soluciones técnicas para equipos creativos.
+            </p>
+            <div class="contact-list">
+              <span>Email: <a href="mailto:tucorreo@ejemplo.com">tucorreo@ejemplo.com</a></span>
+              <span>LinkedIn: <a href="#" target="_blank">linkedin.com/in/tu-perfil</a></span>
+              <span>GitHub: <a href="#" target="_blank">github.com/tuusuario</a></span>
+              <span>Portfolio visual: <a href="#" target="_blank">Behance / ArtStation</a></span>
+            </div>
+          </div>
+
+          <div>
+            <p class="contact-pill">
+              Próximo paso: integrar un formulario real (por ejemplo, con Netlify
+              Forms, Formspree o una API propia).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> Javier Martínez · Portfolio Preview v0.1
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Año dinámico
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
