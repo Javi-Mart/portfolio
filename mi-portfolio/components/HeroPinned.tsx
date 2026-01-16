@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Scene3DHero from "./Scene3DHero";
 import styles from "./HeroPinned.module.css";
-import MouseParticles from "./MouseParticles";
+import MouseDust from "./MouseDust";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const NAME_SVG_URL = `${BASE_PATH}/jv_name.svg`;
@@ -88,7 +88,6 @@ export default function HeroPinned() {
       onPointerMove={onPointerMove}
     >
       <div className={styles.sticky}>
-        <MouseParticles className={styles.particles} color={"#FF4346"} />
 
         <header className={styles.header}>
           <div className={styles.brand}>
@@ -153,6 +152,21 @@ export default function HeroPinned() {
           <span className={styles.scrollLine} />
           <span className={styles.scrollText}>Scroll</span>
         </div>
+        <MouseDust
+          className={styles.particles}
+          color="#fff3f39c"
+          maxParticles= {8000}
+          sizeMin= {0.5} 
+          sizeMax= {2.5}
+          trail= {0}
+          spawnMin= {0}
+          spawnMax= {60}
+          radiusMin= {18}
+          radiusMax= {110}
+          speedMin= {20}
+          speedMax= {1200}
+        />
+
       </div>
     </section>
   );
