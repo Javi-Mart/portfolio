@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:I[12309,["/portfolio/_next/static/chunks/dacd03551e289c15.js"],"default"]
+3:I[84304,["/portfolio/_next/static/chunks/18d46c8dcdcfd623.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+:HL["/portfolio/_next/static/chunks/ef2295c53d2db428.css","style"]
+0:{"buildId":"LxjyHK2GO28XmMydMb6cy","rsc":["$","$1","c",{"children":[["$","main",null,{"children":[["$","$L2",null,{}],["$","section",null,{"id":"sobre-mi","style":{"minHeight":"100vh","background":"#1f1f1f"}}],["$","section",null,{"id":"proyectos","style":{"minHeight":"100vh","background":"#151515"}}],["$","section",null,{"id":"contacto","style":{"minHeight":"100vh","background":"#101010"}}]]}],[["$","link","0",{"rel":"stylesheet","href":"/portfolio/_next/static/chunks/ef2295c53d2db428.css","precedence":"next"}],["$","script","script-0",{"src":"/portfolio/_next/static/chunks/dacd03551e289c15.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null
