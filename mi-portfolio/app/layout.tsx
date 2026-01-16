@@ -1,10 +1,24 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
+import { Prompt, Hubot_Sans } from "next/font/google";
+
+const prompt = Prompt({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const hubotSans = Hubot_Sans({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Javier Martínez | Portfolio",
-  description:
-    "Portafolio de Javier Martínez, diseñador gráfico y artista técnico.",
+  title: "Javier Martínez · Portfolio",
+  description: "Graphic Designer · Technical Artist",
 };
 
 export default function RootLayout({
@@ -13,33 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
-      <body className="body">
-        <div className="page-wrapper">
-          <header className="site-header">
-            <div className="brand">
-              <div className="brand-logo">JM</div>
-              <div className="brand-text">
-                <span>Javier Martínez</span>
-                <span>Graphic Designer · Technical Artist</span>
-              </div>
-            </div>
-            <nav className="nav">
-              <a href="#about">Sobre mí</a>
-              <a href="#projects">Proyectos</a>
-              <a href="#contact" className="nav-primary">
-                Contacto
-              </a>
-            </nav>
-          </header>
-
-          <main>{children}</main>
-
-          <footer className="site-footer">
-            © {new Date().getFullYear()} Javier Martínez · Portfolio Preview
-          </footer>
-        </div>
-      </body>
+    <html lang="es" className={`${prompt.variable} ${hubotSans.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
