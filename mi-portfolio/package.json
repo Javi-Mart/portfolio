@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "cross-env NEXT_DISABLE_TURBOPACK=1 next build",
+    "export:gh": "shx rm -rf .next out && next build && shx mkdir -p out/portfolio && shx mv out/_next out/models out/*.html out/*.txt out/*.svg out/*.ico out/portfolio 2>nul || true",
+    "deploy": "pnpm build && shx touch out/.nojekyll && gh-pages -d out --dotfiles --no-history",
     "start": "next start",
     "lint": "eslint"
   },
@@ -21,8 +23,13 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.182.0",
+    "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
+    "gh-pages": "^6.3.0",
+    "serve": "^14.2.5",
+    "shx": "^0.4.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

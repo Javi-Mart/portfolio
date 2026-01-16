@@ -5,7 +5,8 @@ import { Environment, useGLTF } from "@react-three/drei";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 
-const MODEL_URL = "/models/hero.glb";
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const MODEL_URL = `${BASE_PATH}/models/hero.glb`;
 
 /** Scroll global -> progress [0..1] */
 function useScrollProgress() {
