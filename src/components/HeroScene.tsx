@@ -47,9 +47,30 @@ function PortfolioModel({ reduceMotion }: { reduceMotion: boolean }) {
   const isCompact = viewport.width < 7;
 
   useEffect(() => {
+    const warmLift = new THREE.Color('#f0d9c7');
+
+    const enhanceMaterial = (material: THREE.Material) => {
+      const cloned = material.clone();
+
+      if (cloned instanceof THREE.MeshStandardMaterial || cloned instanceof THREE.MeshPhysicalMaterial) {
+        cloned.metalness = Math.max(cloned.metalness, 0.28);
+        cloned.roughness = Math.min(Math.max(cloned.roughness, 0.24), 0.62);
+
+        if (cloned.color.getHSL({ h: 0, s: 0, l: 0 }).l < 0.34) {
+          cloned.color.lerp(warmLift, 0.42);
+        }
+
+        cloned.emissive = new THREE.Color('#160704');
+        cloned.emissiveIntensity = 0.08;
+      }
+
+      return cloned;
+    };
+
     scene.traverse((child) => {
       if ((child as THREE.Mesh).isMesh) {
         const mesh = child as THREE.Mesh;
+        mesh.material = Array.isArray(mesh.material) ? mesh.material.map(enhanceMaterial) : enhanceMaterial(mesh.material);
         mesh.castShadow = true;
         mesh.receiveShadow = true;
       }
@@ -61,8 +82,8 @@ function PortfolioModel({ reduceMotion }: { reduceMotion: boolean }) {
     if (!group) return;
 
     const elapsed = clock.getElapsedTime();
-    const baseX = isCompact ? 0.08 : 1.48;
-    const baseY = isCompact ? -0.46 : -0.02;
+    const baseX = isCompact ? 0.12 : 2.12;
+    const baseY = isCompact ? -0.3 : -0.08;
     const mouseX = reduceMotion ? 0 : pointer.x;
     const mouseY = reduceMotion ? 0 : pointer.y;
 
@@ -79,9 +100,9 @@ function PortfolioModel({ reduceMotion }: { reduceMotion: boolean }) {
   return (
     <Float speed={reduceMotion ? 0 : 1.2} rotationIntensity={reduceMotion ? 0 : 0.14} floatIntensity={reduceMotion ? 0 : 0.26}>
       <group
-      ref={groupRef}
-        position={[isCompact ? 0.08 : 1.48, isCompact ? -0.46 : -0.02, 0]}
-        scale={isCompact ? 1.7 : 2.34}
+        ref={groupRef}
+        position={[isCompact ? 0.12 : 2.12, isCompact ? -0.3 : -0.08, 0]}
+        scale={isCompact ? 1.9 : 2.02}
       >
         <Center>
           <primitive object={scene} />
@@ -103,11 +124,11 @@ export function HeroScene() {
           camera={{ position: [0, 0, 6], fov: 38 }}
           gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
         >
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[3.6, 4.8, 4.4]} intensity={3.2} castShadow />
-          <spotLight position={[0.2, 4.4, 3.4]} angle={0.34} penumbra={0.72} intensity={3.8} color="#fff0de" />
-          <pointLight position={[-3.2, -1.4, 3.4]} intensity={2.7} color="#32d6ff" />
-          <pointLight position={[3.8, -1.6, 2.5]} intensity={3.2} color="#ff7448" />
+          <ambientLight intensity={0.72} />
+          <directionalLight position={[3.6, 4.8, 4.4]} intensity={4} castShadow />
+          <spotLight position={[0.2, 4.4, 3.4]} angle={0.34} penumbra={0.72} intensity={4.6} color="#fff0de" />
+          <pointLight position={[-3.2, -1.4, 3.4]} intensity={3.4} color="#32d6ff" />
+          <pointLight position={[3.8, -1.6, 2.5]} intensity={4} color="#ff7448" />
           <Suspense fallback={null}>
             <PortfolioModel reduceMotion={reduceMotion} />
             <Sparkles

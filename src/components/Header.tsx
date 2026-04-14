@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { navigation, siteMeta } from '../content/siteContent';
+import { navigation } from '../content/siteContent';
 import { ScrollProgress } from './ScrollProgress';
 
 export function Header() {
@@ -13,7 +13,6 @@ export function Header() {
           <span className="brand-mark" aria-hidden="true">
             JC
           </span>
-          <span className="brand-text">{siteMeta.name}</span>
         </a>
 
         <nav className="desktop-nav" aria-label="Navegacion principal">
@@ -23,10 +22,6 @@ export function Header() {
             </a>
           ))}
         </nav>
-
-        <a className="header-cta" href={`mailto:${siteMeta.email}`}>
-          Let's talk
-        </a>
 
         <button
           type="button"

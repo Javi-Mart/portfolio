@@ -39,8 +39,8 @@ export const navigation = [
 
 export const hero = {
   eyebrow: 'Creative technology portfolio',
-  title: 'Diseño sistemas visuales para marcas, piezas y mundos que se mueven.',
-  body: 'Una práctica híbrida entre dirección visual, branding, motion, 3D, AI y prototipado interactivo. Imágenes con criterio de diseño, tecnología con intención y experiencias listas para sentirse premium.',
+  title: 'Visuales que mueven.',
+  body: 'Dirección visual, 3D, motion y tecnología creativa para piezas con presencia cinematográfica.',
   primaryCta: { label: 'Explorar trabajos', href: '#trabajos' },
   secondaryCta: { label: 'Iniciar contacto', href: `mailto:${siteMeta.email}` },
   ambientText: ['VISUAL SYSTEMS', 'REALTIME 3D', 'MOTION DIRECTION', 'AI CRAFT'],
