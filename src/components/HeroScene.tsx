@@ -1,6 +1,6 @@
 import { Component, Suspense, useEffect, useMemo, useRef } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Center, ContactShadows, Float, useGLTF } from '@react-three/drei';
+import { Center, ContactShadows, Float, Sparkles, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 import { modelAsset } from '../content/assets';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
@@ -61,8 +61,8 @@ function PortfolioModel({ reduceMotion }: { reduceMotion: boolean }) {
     if (!group) return;
 
     const elapsed = clock.getElapsedTime();
-    const baseX = isCompact ? 0.08 : 1.12;
-    const baseY = isCompact ? -0.62 : -0.08;
+    const baseX = isCompact ? 0.08 : 1.48;
+    const baseY = isCompact ? -0.46 : -0.02;
     const mouseX = reduceMotion ? 0 : pointer.x;
     const mouseY = reduceMotion ? 0 : pointer.y;
 
@@ -79,9 +79,9 @@ function PortfolioModel({ reduceMotion }: { reduceMotion: boolean }) {
   return (
     <Float speed={reduceMotion ? 0 : 1.2} rotationIntensity={reduceMotion ? 0 : 0.14} floatIntensity={reduceMotion ? 0 : 0.26}>
       <group
-        ref={groupRef}
-        position={[isCompact ? 0.08 : 1.12, isCompact ? -0.62 : -0.08, 0]}
-        scale={isCompact ? 1.55 : 2.08}
+      ref={groupRef}
+        position={[isCompact ? 0.08 : 1.48, isCompact ? -0.46 : -0.02, 0]}
+        scale={isCompact ? 1.7 : 2.34}
       >
         <Center>
           <primitive object={scene} />
@@ -103,17 +103,27 @@ export function HeroScene() {
           camera={{ position: [0, 0, 6], fov: 38 }}
           gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
         >
-          <ambientLight intensity={0.74} />
-          <directionalLight position={[3.6, 4.8, 4.4]} intensity={2.7} castShadow />
-          <pointLight position={[-3.2, -1.4, 3.4]} intensity={3.4} color="#43ffb4" />
-          <pointLight position={[2.8, -2.2, 2.2]} intensity={1.1} color="#ffffff" />
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[3.6, 4.8, 4.4]} intensity={3.2} castShadow />
+          <spotLight position={[0.2, 4.4, 3.4]} angle={0.34} penumbra={0.72} intensity={3.8} color="#fff0de" />
+          <pointLight position={[-3.2, -1.4, 3.4]} intensity={2.7} color="#32d6ff" />
+          <pointLight position={[3.8, -1.6, 2.5]} intensity={3.2} color="#ff7448" />
           <Suspense fallback={null}>
             <PortfolioModel reduceMotion={reduceMotion} />
+            <Sparkles
+              count={reduceMotion ? 0 : 46}
+              scale={[5.8, 3.2, 2.2]}
+              size={1.4}
+              speed={0.18}
+              opacity={0.22}
+              color="#ff8758"
+              position={[0.8, 0.1, -0.5]}
+            />
             <ContactShadows
-              position={[0, -1.58, 0]}
-              opacity={0.28}
-              scale={7}
-              blur={2.6}
+              position={[0.5, -1.68, 0]}
+              opacity={0.34}
+              scale={8}
+              blur={3}
               far={3.8}
               resolution={768}
               color="#000000"

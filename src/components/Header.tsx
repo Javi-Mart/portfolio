@@ -6,17 +6,17 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-page/72 backdrop-blur-xl">
+    <header className="site-header">
       <ScrollProgress />
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
-        <a href="#intro" className="group flex items-center gap-3" onClick={() => setIsOpen(false)}>
+      <div className="site-header-inner">
+        <a href="#intro" className="brand-link" onClick={() => setIsOpen(false)}>
           <span className="brand-mark" aria-hidden="true">
             JC
           </span>
-          <span className="hidden text-sm font-semibold text-ink sm:block">{siteMeta.name}</span>
+          <span className="brand-text">{siteMeta.name}</span>
         </a>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Navegacion principal">
+        <nav className="desktop-nav" aria-label="Navegacion principal">
           {navigation.map((item) => (
             <a key={item.href} className="nav-link" href={item.href}>
               {item.label}
@@ -24,9 +24,13 @@ export function Header() {
           ))}
         </nav>
 
+        <a className="header-cta" href={`mailto:${siteMeta.email}`}>
+          Let's talk
+        </a>
+
         <button
           type="button"
-          className="menu-button md:hidden"
+          className="menu-button"
           aria-label="Abrir navegacion"
           aria-expanded={isOpen}
           onClick={() => setIsOpen((current) => !current)}
@@ -37,8 +41,8 @@ export function Header() {
       </div>
 
       {isOpen ? (
-        <nav className="border-t border-white/10 bg-page px-5 py-4 md:hidden" aria-label="Navegacion movil">
-          <div className="mx-auto grid max-w-7xl gap-2">
+        <nav className="mobile-nav" aria-label="Navegacion movil">
+          <div className="mobile-nav-inner">
             {navigation.map((item) => (
               <a key={item.href} className="mobile-nav-link" href={item.href} onClick={() => setIsOpen(false)}>
                 {item.label}

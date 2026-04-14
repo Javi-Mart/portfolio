@@ -38,12 +38,13 @@ export const navigation = [
 ];
 
 export const hero = {
-  eyebrow: 'Portafolio profesional',
-  title: 'Arte, branding y sistemas 3D para experiencias que se sienten vivas.',
-  body: 'Diseño visual, motion graphics, technical art, AI y tecnología creativa conectados en una presencia digital precisa, inmersiva y lista para evolucionar.',
-  primaryCta: { label: 'Ver trabajos', href: '#trabajos' },
-  secondaryCta: { label: 'Hablemos', href: `mailto:${siteMeta.email}` },
-  ambientText: ['AI', '3D', 'MOTION', 'DESIGN'],
+  eyebrow: 'Creative technology portfolio',
+  title: 'Diseño sistemas visuales para marcas, piezas y mundos que se mueven.',
+  body: 'Una práctica híbrida entre dirección visual, branding, motion, 3D, AI y prototipado interactivo. Imágenes con criterio de diseño, tecnología con intención y experiencias listas para sentirse premium.',
+  primaryCta: { label: 'Explorar trabajos', href: '#trabajos' },
+  secondaryCta: { label: 'Iniciar contacto', href: `mailto:${siteMeta.email}` },
+  ambientText: ['VISUAL SYSTEMS', 'REALTIME 3D', 'MOTION DIRECTION', 'AI CRAFT'],
+  sideNotes: ['BRANDING', 'MOTION', 'TECHNICAL ART', 'AI'],
 };
 
 export const reel = {
@@ -57,9 +58,9 @@ export const reel = {
 
 export const about = {
   eyebrow: 'Perfil híbrido',
-  title: 'Diseño con criterio técnico, tecnología con sensibilidad visual.',
+  title: 'Una mezcla de mirada artística, estructura y precisión.',
   paragraphs: [
-    'Trabajo en la intersección entre identidad visual, motion, 3D, AI y experiencias interactivas. Mi enfoque une dirección de arte, sistemas visuales y producción técnica para construir piezas que se ven premium y funcionan con precisión.',
+    'Trabajo en la intersección entre identidad visual, motion, 3D, AI y experiencias interactivas. Mi enfoque une dirección de arte, sistemas visuales y producción técnica para construir piezas con presencia, ritmo y consistencia.',
     'Me interesa convertir ideas complejas en artefactos claros: marcas con lenguaje propio, escenas 3D optimizadas, narrativas de movimiento y prototipos digitales que ayudan a tomar mejores decisiones creativas.',
   ],
   facts: [
@@ -68,6 +69,24 @@ export const about = {
     { value: 'Motion', label: 'Ritmo, edición y animación' },
   ],
 };
+
+export const creativeProcess = [
+  {
+    label: '01',
+    title: 'Concepto visual',
+    description: 'Traduzco posicionamiento, tono y oportunidad en un lenguaje visual con carácter propio.',
+  },
+  {
+    label: '02',
+    title: 'Prototipo interactivo',
+    description: 'Conecto layout, ritmo, scroll y profundidad para validar la experiencia antes del refinamiento.',
+  },
+  {
+    label: '03',
+    title: 'Pulido técnico',
+    description: 'Ajusto materiales, motion, performance y responsive para que la pieza se sienta premium en desktop y mobile.',
+  },
+];
 
 export const specialties = [
   {
@@ -195,7 +214,7 @@ export const projects: Project[] = [
 
 export const contact = {
   eyebrow: 'Contacto',
-  title: 'Construyamos algo con presencia, movimiento y buen criterio tecnico.',
+  title: 'Listo para convertir tu idea en una experiencia memorable.',
   body: 'Disponible para branding, motion, escenas 3D, sistemas visuales, prototipos creativos y exploraciones con AI.',
   email: siteMeta.email,
   links: [

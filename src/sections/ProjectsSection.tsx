@@ -11,7 +11,7 @@ type ProjectsSectionProps = {
 
 export function ProjectsSection({ onProjectSelect }: ProjectsSectionProps) {
   return (
-    <section id="trabajos" className="section-wrap">
+    <section id="trabajos" className="section-wrap projects-section">
       <Reveal>
         <SectionLabel
           eyebrow="Trabajos"
@@ -20,32 +20,35 @@ export function ProjectsSection({ onProjectSelect }: ProjectsSectionProps) {
         />
       </Reveal>
 
-      <div className="mt-12 grid gap-5 md:grid-cols-2">
+      <div className="project-list">
         {projects.map((project, index) => (
           <Reveal key={project.id} delay={index * 0.05}>
             <motion.button
               type="button"
-              className="project-card"
+              className={`project-card ${index === 0 ? 'project-card-featured' : ''}`}
               onClick={() => onProjectSelect(project)}
-              whileHover={{ y: -7 }}
+              whileHover={{ y: -8, scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
               transition={{ duration: 0.25 }}
             >
-              <MediaFrame media={project.media[0]} className="h-[280px]" />
+              <span className="project-card-media">
+                <MediaFrame media={project.media[0]} />
+              </span>
               <span className="project-card-meta">
                 <span>{project.eyebrow}</span>
                 <span>{project.year}</span>
               </span>
-              <span className="block px-5 pb-5 pt-4 text-left">
-                <span className="block text-2xl font-semibold text-ink">{project.title}</span>
-                <span className="mt-3 block text-sm leading-7 text-white/66">{project.summary}</span>
-                <span className="mt-4 flex flex-wrap gap-2">
+              <span className="project-card-copy">
+                <span className="project-card-title">{project.title}</span>
+                <span className="project-card-summary">{project.summary}</span>
+                <span className="project-card-tags">
                   {project.tags.map((tag) => (
                     <span key={tag} className="tag">
                       {tag}
                     </span>
                   ))}
                 </span>
+                <span className="project-open">Abrir caso</span>
               </span>
             </motion.button>
           </Reveal>

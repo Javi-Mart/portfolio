@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { ProjectModal } from './components/ProjectModal';
 import type { Project } from './content/siteContent';
 import { siteMeta } from './content/siteContent';
+import { usePointerAura } from './hooks/usePointerAura';
 import { AboutSection } from './sections/AboutSection';
 import { ContactSection } from './sections/ContactSection';
 import { Hero } from './sections/Hero';
@@ -13,11 +14,12 @@ import { SpecialtiesSection } from './sections/SpecialtiesSection';
 
 export default function App() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
+  usePointerAura();
 
   return (
     <>
       <Header />
-      <main>
+      <main className="site-shell">
         <Hero />
         <ReelSection />
         <AboutSection />

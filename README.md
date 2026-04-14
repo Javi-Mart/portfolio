@@ -2,6 +2,8 @@
 
 Portafolio profesional en dark mode para diseño, branding, motion, 3D, AI y tecnología creativa. Está construido como sitio estático con Vite, React, TypeScript, Tailwind CSS, React Three Fiber, Drei y Framer Motion.
 
+La dirección visual usa una estética oscura, editorial e inmersiva: hero con modelo 3D, capas tipográficas, fondos atmosféricos, grano sutil, glow interactivo, secciones con contraste propio, cards con media dominante y modal de proyectos.
+
 ## Stack
 
 - Vite + React + TypeScript
@@ -100,14 +102,18 @@ Edita `src/styles/index.css`:
 
 ```css
 :root {
-  --accent: 154 100% 62%;
+  --accent: 15 100% 66%;
+  --accent-cool: 190 100% 58%;
 }
 ```
 
-El valor está en formato HSL sin `hsl()`. Por ejemplo:
+Los valores están en formato HSL sin `hsl()`. `--accent` controla el acento principal cálido y `--accent-cool` controla luces secundarias frías para fondos, bordes y profundidad.
+
+Por ejemplo:
 
 ```css
 --accent: 184 100% 58%;
+--accent-cool: 15 100% 66%;
 ```
 
 ## Reemplazar el modelo 3D
@@ -215,6 +221,7 @@ src/
 - `src/content/siteContent.ts`: contenido editable
 - `src/styles/index.css`: tema visual y color de acento
 - `src/components/HeroScene.tsx`: integración del modelo 3D
+- `src/hooks/usePointerAura.ts`: halo interactivo que sigue el cursor
 
 ## Notas de performance
 
