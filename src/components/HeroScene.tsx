@@ -1,4 +1,4 @@
-import { Component, Suspense, useEffect, useMemo, useRef } from 'react';
+import { Component, Suspense, useEffect, useMemo, useRef, type MutableRefObject } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Center, ContactShadows, Float, Sparkles, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
@@ -12,6 +12,11 @@ type SceneBoundaryProps = {
 type SceneBoundaryState = {
   hasError: boolean;
 };
+
+type PointerSignal = MutableRefObject<{
+  x: number;
+  y: number;
+}>;
 
 class SceneBoundary extends Component<SceneBoundaryProps, SceneBoundaryState> {
   state: SceneBoundaryState = { hasError: false };
@@ -39,7 +44,31 @@ function HeroSceneFallback() {
   );
 }
 
-function PortfolioModel({ reduceMotion }: { reduceMotion: boolean }) {
+function useGlobalPointer(reduceMotion: boolean) {
+  const pointerSignal = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    if (reduceMotion) return;
+
+    const handlePointerMove = (event: PointerEvent) => {
+      const width = window.innerWidth || 1;
+      const height = window.innerHeight || 1;
+
+      pointerSignal.current.x = (event.clientX / width) * 2 - 1;
+      pointerSignal.current.y = -(event.clientY / height) * 2 + 1;
+    };
+
+    window.addEventListener('pointermove', handlePointerMove, { passive: true });
+
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove);
+    };
+  }, [reduceMotion]);
+
+  return pointerSignal;
+}
+
+function PortfolioModel({ pointerSignal, reduceMotion }: { pointerSignal: PointerSignal; reduceMotion: boolean }) {
   const groupRef = useRef<THREE.Group>(null);
   const gltf = useGLTF(modelAsset);
   const scene = useMemo(() => gltf.scene.clone(true), [gltf.scene]);
@@ -77,15 +106,15 @@ function PortfolioModel({ reduceMotion }: { reduceMotion: boolean }) {
     });
   }, [scene]);
 
-  useFrame(({ pointer, clock }) => {
+  useFrame(({ clock }) => {
     const group = groupRef.current;
     if (!group) return;
 
     const elapsed = clock.getElapsedTime();
     const baseX = isCompact ? 0.12 : 2.12;
     const baseY = isCompact ? -0.3 : -0.08;
-    const mouseX = reduceMotion ? 0 : pointer.x;
-    const mouseY = reduceMotion ? 0 : pointer.y;
+    const mouseX = reduceMotion ? 0 : pointerSignal.current.x;
+    const mouseY = reduceMotion ? 0 : pointerSignal.current.y;
 
     group.position.x = THREE.MathUtils.lerp(group.position.x, baseX + mouseX * 0.16, 0.06);
     group.position.y = THREE.MathUtils.lerp(group.position.y, baseY + mouseY * 0.08, 0.06);
@@ -114,6 +143,7 @@ function PortfolioModel({ reduceMotion }: { reduceMotion: boolean }) {
 
 export function HeroScene() {
   const reduceMotion = usePrefersReducedMotion();
+  const pointerSignal = useGlobalPointer(reduceMotion);
 
   return (
     <div className="hero-canvas" aria-hidden="true">
@@ -130,7 +160,7 @@ export function HeroScene() {
           <pointLight position={[-3.2, -1.4, 3.4]} intensity={3.4} color="#32d6ff" />
           <pointLight position={[3.8, -1.6, 2.5]} intensity={4} color="#ff7448" />
           <Suspense fallback={null}>
-            <PortfolioModel reduceMotion={reduceMotion} />
+            <PortfolioModel pointerSignal={pointerSignal} reduceMotion={reduceMotion} />
             <Sparkles
               count={reduceMotion ? 0 : 46}
               scale={[5.8, 3.2, 2.2]}

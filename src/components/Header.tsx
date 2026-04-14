@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { navigation } from '../content/siteContent';
+import { navigation, siteMeta } from '../content/siteContent';
 import { ScrollProgress } from './ScrollProgress';
 
 export function Header() {
@@ -13,6 +13,7 @@ export function Header() {
           <span className="brand-mark" aria-hidden="true">
             JC
           </span>
+          <span className="brand-name">{siteMeta.name}</span>
         </a>
 
         <nav className="desktop-nav" aria-label="Navegacion principal">

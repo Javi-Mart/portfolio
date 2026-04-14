@@ -119,10 +119,10 @@ Por ejemplo:
 
 ## Reemplazar el modelo 3D
 
-Reemplaza el archivo de la raíz:
+Reemplaza el archivo:
 
 ```text
-model.glb
+src/assets/3d/model.glb
 ```
 
 La ruta está centralizada en `src/content/assets.ts`.
@@ -131,10 +131,10 @@ Si el nuevo modelo necesita ajustes de escala o posición, edita `src/components
 
 ## Reemplazar el reel
 
-Reemplaza el archivo de la raíz:
+Reemplaza el archivo:
 
 ```text
-reel.mp4
+src/assets/video/reel.mp4
 ```
 
 La sección del video usa la configuración de `src/content/siteContent.ts`:

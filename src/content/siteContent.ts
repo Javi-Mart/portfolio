@@ -23,7 +23,7 @@ export type Project = {
 };
 
 export const siteMeta = {
-  name: 'Javier Creative Tech',
+  name: 'Javier Martinez',
   role: 'Design + Motion + 3D + AI',
   email: 'hola@tu-dominio.com',
   location: 'El Salvador / Remote',
