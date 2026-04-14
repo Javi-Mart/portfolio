@@ -585,6 +585,8 @@ async function main() {
     const heroPath = path.join(outputDir, 'hero-3d.png');
     const heroAnalysis = await captureHeroWhenModelIsVisible(client, heroPath);
 
+    const profileIntroPath = path.join(outputDir, 'profile-intro.png');
+    await captureSection(client, '#perfil', profileIntroPath, 0, false);
     await captureSection(client, '#perfil', path.join(outputDir, 'profile.png'), 0.9);
     await captureSection(client, '#trabajos', path.join(outputDir, 'projects.png'), 0.52, false);
     const reelPath = path.join(outputDir, 'reel.png');
@@ -599,6 +601,7 @@ async function main() {
         heroScreenshotAnalysis: heroAnalysis,
         screenshots: {
           hero: heroPath,
+          profileIntro: profileIntroPath,
           profile: path.join(outputDir, 'profile.png'),
           projects: path.join(outputDir, 'projects.png'),
           reel: reelPath,

@@ -15,16 +15,18 @@ function ProfileCard({ card, index, total, scrollYProgress }: ProfileCardProps) 
   const reduceMotion = useReducedMotion();
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const smoothMouseX = useSpring(mouseX, { stiffness: 120, damping: 22, mass: 0.72 });
+  const smoothMouseY = useSpring(mouseY, { stiffness: 120, damping: 22, mass: 0.72 });
   const scrollY = useTransform(
     scrollYProgress,
-    [0, 1],
-    reduceMotion ? [0, 0] : [68 + index * 22, -40 - index * 34],
+    [0, 0.18 + index * 0.04, 1],
+    reduceMotion ? [0, 0, 0] : [58 + index * 18, 44 + index * 10, -34 - index * 30],
   );
-  const y = useSpring(scrollY, { stiffness: 92, damping: 24, mass: 0.82 });
-  const rotateX = useTransform(mouseY, [-0.5, 0.5], reduceMotion ? [0, 0] : [3.5, -3.5]);
-  const rotateY = useTransform(mouseX, [-0.5, 0.5], reduceMotion ? [0, 0] : [-4, 4]);
-  const visualX = useTransform(mouseX, [-0.5, 0.5], reduceMotion ? [0, 0] : [-10, 10]);
-  const visualY = useTransform(mouseY, [-0.5, 0.5], reduceMotion ? [0, 0] : [-8, 8]);
+  const y = useSpring(scrollY, { stiffness: 58, damping: 31, mass: 1.12, restDelta: 0.001 });
+  const rotateX = useTransform(smoothMouseY, [-0.5, 0.5], reduceMotion ? [0, 0] : [3.5, -3.5]);
+  const rotateY = useTransform(smoothMouseX, [-0.5, 0.5], reduceMotion ? [0, 0] : [-4, 4]);
+  const visualX = useTransform(smoothMouseX, [-0.5, 0.5], reduceMotion ? [0, 0] : [-10, 10]);
+  const visualY = useTransform(smoothMouseY, [-0.5, 0.5], reduceMotion ? [0, 0] : [-8, 8]);
 
   return (
     <motion.article

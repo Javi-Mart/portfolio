@@ -874,8 +874,8 @@ button {
 
 .about-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.98fr) minmax(320px, 0.78fr);
-  gap: clamp(2.5rem, 7vw, 7rem);
+  grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.84fr);
+  gap: clamp(3.25rem, 8vw, 8rem);
   align-items: start;
 }
 
@@ -886,14 +886,14 @@ button {
 }
 
 .about-section .section-label h2 {
-  max-width: 740px;
-  font-size: clamp(4.25rem, 9vw, 8rem);
-  line-height: 0.82;
+  max-width: 560px;
+  font-size: clamp(3.6rem, 6.35vw, 5.65rem);
+  line-height: 0.9;
 }
 
 .about-pullquote {
-  max-width: 520px;
-  margin-top: 2.4rem;
+  max-width: 500px;
+  margin-top: 2rem;
   color: rgb(255 255 255 / 0.78);
   font-size: clamp(1.08rem, 1.7vw, 1.55rem);
   font-weight: 860;
@@ -903,7 +903,7 @@ button {
 .about-body {
   display: grid;
   gap: 1.4rem;
-  padding-top: clamp(1rem, 8vw, 7rem);
+  padding-top: clamp(2.25rem, 6.4vw, 5.75rem);
 }
 
 .about-copy {
@@ -1670,7 +1670,8 @@ footer {
   }
 
   .about-section .section-label h2 {
-    font-size: clamp(3.7rem, 12vw, 6.5rem);
+    max-width: 700px;
+    font-size: clamp(3.4rem, 10vw, 5.7rem);
   }
 
   .profile-card-stack {
@@ -1893,7 +1894,8 @@ footer {
   }
 
   .about-section .section-label h2 {
-    font-size: 2.85rem;
+    font-size: 2.65rem;
+    line-height: 0.92;
   }
 
   .about-pullquote {
