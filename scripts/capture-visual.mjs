@@ -291,6 +291,29 @@ const heroCanvasStateExpression = `(() => {
   return state;
 })()`;
 
+const contactCanvasStateExpression = `(() => {
+  const canvas = document.querySelector('.contact-3d canvas');
+  const state = {
+    canvasExists: Boolean(canvas),
+    modelLoaded: window.__portfolioContactModelLoaded === true || document.documentElement.dataset.contactModelLoaded === 'true',
+    hasContext: false,
+    width: 0,
+    height: 0,
+    ok: false,
+  };
+
+  if (!canvas) return state;
+
+  const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
+  state.hasContext = Boolean(gl);
+  if (!gl) return state;
+
+  state.width = gl.drawingBufferWidth;
+  state.height = gl.drawingBufferHeight;
+  state.ok = state.canvasExists && state.modelLoaded && state.hasContext && state.width > 0 && state.height > 0;
+  return state;
+})()`;
+
 function animationsSettledExpression(selector) {
   return `(() => {
     const root = document.querySelector(${JSON.stringify(selector)});
@@ -538,6 +561,7 @@ async function runResponsiveChecks(client) {
       `(() => {
         const profileCards = Array.from(document.querySelectorAll('#perfil .profile-card'));
         const projects = document.querySelector('#trabajos');
+        const contact = document.querySelector('#contacto .contact-editorial');
         const projectRect = projects ? projects.getBoundingClientRect() : null;
         const overflow = Math.max(0, document.documentElement.scrollWidth - window.innerWidth);
         return {
@@ -549,7 +573,8 @@ async function runResponsiveChecks(client) {
           minProfileCardHeight: profileCards.reduce((min, card) => Math.min(min, card.getBoundingClientRect().height), Infinity),
           projectsPresent: Boolean(projects),
           projectsTop: projectRect ? Math.round(projectRect.top) : null,
-          ok: overflow <= 2 && profileCards.length === 4 && Boolean(projects),
+          contactPresent: Boolean(contact),
+          ok: overflow <= 2 && profileCards.length === 4 && Boolean(projects) && Boolean(contact),
         };
       })()`,
     );
@@ -591,6 +616,32 @@ async function main() {
     await captureSection(client, '#trabajos', path.join(outputDir, 'projects.png'), 0.52, false);
     const reelPath = path.join(outputDir, 'reel.png');
     await captureSection(client, '#reel', reelPath, 0, false);
+    const contactTopPath = path.join(outputDir, 'contact-top.png');
+    await captureSection(client, '#contacto', contactTopPath, 0, false);
+    const contactPath = path.join(outputDir, 'contact.png');
+    await evaluate(
+      client,
+      `(() => {
+        const section = document.querySelector('#contacto');
+        if (!section) return false;
+        const top = section.getBoundingClientRect().top + window.scrollY + window.innerHeight * 0.32;
+        window.scrollTo({ top, behavior: 'auto' });
+        return true;
+      })()`,
+    );
+    await waitForSectionVisible(client, '#contacto');
+    await waitForValue(client, 'contact reveal animations settled', animationsSettledExpression('#contacto'), Boolean, 8000);
+    const contactState = await waitForValue(
+      client,
+      'visible non-empty WebGL contact canvas',
+      contactCanvasStateExpression,
+      (value) => value.ok,
+      15000,
+    );
+    await forceFrames(client, 10);
+    await capturePng(client, contactPath);
+    const contactBottomPath = path.join(outputDir, 'contact-bottom.png');
+    await captureSection(client, '#contacto', contactBottomPath, 0.72, false);
     const responsiveChecks = await runResponsiveChecks(client);
 
     console.log(JSON.stringify(
@@ -605,7 +656,11 @@ async function main() {
           profile: path.join(outputDir, 'profile.png'),
           projects: path.join(outputDir, 'projects.png'),
           reel: reelPath,
+          contactTop: contactTopPath,
+          contact: contactPath,
+          contactBottom: contactBottomPath,
         },
+        contactCanvas: contactState,
         responsiveChecks,
       },
       null,
