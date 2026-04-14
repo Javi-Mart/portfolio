@@ -10,6 +10,7 @@ La dirección visual usa una estética oscura, editorial e inmersiva: hero con m
 - Tailwind CSS
 - React Three Fiber + `@react-three/drei`
 - Framer Motion
+- Google Fonts para titulares con `Syne`
 - GitHub Pages con `base` configurable para subpaths
 - Sin backend
 
