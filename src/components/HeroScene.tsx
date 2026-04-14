@@ -104,6 +104,14 @@ function PortfolioModel({ pointerSignal, reduceMotion }: { pointerSignal: Pointe
         mesh.receiveShadow = true;
       }
     });
+
+    if (typeof window !== 'undefined') {
+      const validationWindow = window as Window & { __portfolioHeroModelLoaded?: boolean };
+
+      validationWindow.__portfolioHeroModelLoaded = true;
+      document.documentElement.dataset.heroModelLoaded = 'true';
+      window.dispatchEvent(new Event('portfolioHeroModelLoaded'));
+    }
   }, [scene]);
 
   useFrame(({ clock }) => {
@@ -144,6 +152,8 @@ function PortfolioModel({ pointerSignal, reduceMotion }: { pointerSignal: Pointe
 export function HeroScene() {
   const reduceMotion = usePrefersReducedMotion();
   const pointerSignal = useGlobalPointer(reduceMotion);
+  const preserveDrawingBuffer =
+    typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('visualValidation');
 
   return (
     <div className="hero-canvas" aria-hidden="true">
@@ -152,7 +162,7 @@ export function HeroScene() {
           shadows
           dpr={[1, 1.55]}
           camera={{ position: [0, 0, 6], fov: 38 }}
-          gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+          gl={{ antialias: true, alpha: true, powerPreference: 'high-performance', preserveDrawingBuffer }}
         >
           <ambientLight intensity={0.72} />
           <directionalLight position={[3.6, 4.8, 4.4]} intensity={4} castShadow />

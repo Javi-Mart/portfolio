@@ -1,5 +1,7 @@
 node_modules/
 dist/
+visual-captures/
+.visual-chrome-profile/
 *.tsbuildinfo
 .preview.*.log
 .env

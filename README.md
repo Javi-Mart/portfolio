@@ -69,6 +69,25 @@ npm run build:pages
 npm run preview
 ```
 
+## Validación visual con capturas
+
+Después de generar `dist`, puedes capturar el hero y el reel con Chrome real y validación de WebGL:
+
+```powershell
+conda activate portfolio-web
+npm run build:pages
+npm run capture:visual
+```
+
+El script abre Chrome mediante DevTools Protocol, espera a que el canvas exista, confirma que el GLB terminó de montar, valida que la captura del hero tenga señal visual del 3D y guarda:
+
+```text
+visual-captures/hero-3d.png
+visual-captures/reel.png
+```
+
+Las capturas están ignoradas por Git porque son artefactos de revisión local.
+
 ## GitHub Pages
 
 El proyecto incluye un workflow en `.github/workflows/deploy.yml`.

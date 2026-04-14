@@ -1,4 +1,4 @@
-import { reelAsset } from './assets';
+import { profileVisuals, reelAsset } from './assets';
 
 export type ProjectMedia = {
   type: 'image' | 'video';
@@ -58,15 +58,40 @@ export const reel = {
 
 export const about = {
   eyebrow: 'Perfil híbrido',
-  title: 'Una mezcla de mirada artística, estructura y precisión.',
+  title: 'Arte, sistema y producción visual.',
+  subtitle: 'Dirección creativa para experiencias que combinan forma, tecnología y movimiento.',
   paragraphs: [
-    'Trabajo en la intersección entre identidad visual, motion, 3D, AI y experiencias interactivas. Mi enfoque une dirección de arte, sistemas visuales y producción técnica para construir piezas con presencia, ritmo y consistencia.',
-    'Me interesa convertir ideas complejas en artefactos claros: marcas con lenguaje propio, escenas 3D optimizadas, narrativas de movimiento y prototipos digitales que ayudan a tomar mejores decisiones creativas.',
+    'Trabajo entre branding, 3D, motion y AI para convertir ideas complejas en piezas claras, memorables y listas para producción real.',
   ],
-  facts: [
-    { value: '3D', label: 'Technical art y visual systems' },
-    { value: 'AI', label: 'Procesos creativos asistidos' },
-    { value: 'Motion', label: 'Ritmo, edición y animación' },
+  cards: [
+    {
+      title: '3D',
+      label: '01',
+      description: 'Volumen, material e iluminación para mundos visuales con presencia.',
+      visual: profileVisuals.threeD,
+      alt: 'Placeholder abstracto de geometria 3D',
+    },
+    {
+      title: 'AI',
+      label: '02',
+      description: 'Sistemas creativos asistidos para explorar, curar y acelerar decisiones.',
+      visual: profileVisuals.ai,
+      alt: 'Placeholder abstracto de red AI',
+    },
+    {
+      title: 'Motion',
+      label: '03',
+      description: 'Ritmo, edición y capas animadas para piezas con energia controlada.',
+      visual: profileVisuals.motion,
+      alt: 'Placeholder abstracto de motion graphics',
+    },
+    {
+      title: 'Design',
+      label: '04',
+      description: 'Composición, identidad y lenguaje visual para sistemas de marca.',
+      visual: profileVisuals.design,
+      alt: 'Placeholder abstracto de diseño editorial',
+    },
   ],
 };
 

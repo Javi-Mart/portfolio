@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "build:pages": "tsc -b && vite build --base=/portfolio/",
     "preview": "vite preview",
+    "capture:visual": "node scripts/capture-visual.mjs",
     "deploy": "npm run build:pages && gh-pages -d dist"
   },
   "dependencies": {

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-label="Abstract AI network">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="74%">
+      <stop stop-color="#1b2d31"/>
+      <stop offset="0.54" stop-color="#101313"/>
+      <stop offset="1" stop-color="#050505"/>
+    </radialGradient>
+    <linearGradient id="node" x1="128" y1="76" x2="512" y2="444" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c5f7ff"/>
+      <stop offset="0.42" stop-color="#ff7646"/>
+      <stop offset="1" stop-color="#33211b"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feBlend in="SourceGraphic" in2="blur"/>
+    </filter>
+  </defs>
+  <rect width="640" height="520" rx="34" fill="url(#bg)"/>
+  <g stroke="#b7f6ff" stroke-opacity="0.18" stroke-width="2">
+    <path d="M149 327 242 184 338 305 459 146 502 342 338 305 185 405 149 327Z"/>
+    <path d="M242 184 459 146 338 305 149 327"/>
+    <path d="M185 405 502 342 459 146"/>
+  </g>
+  <g filter="url(#glow)">
+    <circle cx="242" cy="184" r="34" fill="url(#node)"/>
+    <circle cx="459" cy="146" r="28" fill="#eafcff"/>
+    <circle cx="338" cy="305" r="48" fill="#ff7646"/>
+    <circle cx="149" cy="327" r="23" fill="#95e7ff"/>
+    <circle cx="502" cy="342" r="30" fill="#462219"/>
+    <circle cx="185" cy="405" r="18" fill="#ffe3d2"/>
+  </g>
+  <g fill="none" stroke="#fff" stroke-opacity="0.09">
+    <circle cx="338" cy="305" r="112"/>
+    <circle cx="338" cy="305" r="184"/>
+    <path d="M72 260h496M320 64v392"/>
+  </g>
+  <rect x="60" y="58" width="520" height="404" rx="28" fill="none" stroke="#fff" stroke-opacity="0.08"/>
+</svg>

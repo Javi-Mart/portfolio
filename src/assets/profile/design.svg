@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-label="Abstract design system">
+  <defs>
+    <linearGradient id="bg" x1="90" y1="54" x2="570" y2="468" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f9f6ef"/>
+      <stop offset="0.42" stop-color="#ffd8c7"/>
+      <stop offset="1" stop-color="#171717"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="126" y1="112" x2="498" y2="410" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff7646"/>
+      <stop offset="1" stop-color="#7de7ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="520" rx="34" fill="url(#bg)"/>
+  <g opacity="0.28" stroke="#090909" stroke-width="1">
+    <path d="M92 110h456M92 196h456M92 282h456M92 368h456"/>
+    <path d="M140 74v372M230 74v372M320 74v372M410 74v372M500 74v372"/>
+  </g>
+  <rect x="116" y="126" width="170" height="118" rx="18" fill="#090909"/>
+  <rect x="309" y="126" width="214" height="118" rx="18" fill="#fff" fill-opacity="0.46"/>
+  <rect x="116" y="268" width="238" height="126" rx="18" fill="url(#accent)"/>
+  <rect x="378" y="268" width="145" height="126" rx="18" fill="#090909" fill-opacity="0.84"/>
+  <circle cx="491" cy="151" r="15" fill="#ff7646"/>
+  <circle cx="458" cy="151" r="15" fill="#090909"/>
+  <path d="M145 324h178M145 350h118" stroke="#090909" stroke-width="14" stroke-linecap="round" opacity="0.72"/>
+  <path d="M145 179h84M145 205h54" stroke="#fff" stroke-width="14" stroke-linecap="round" opacity="0.86"/>
+  <rect x="60" y="58" width="520" height="404" rx="28" fill="none" stroke="#090909" stroke-opacity="0.1"/>
+</svg>

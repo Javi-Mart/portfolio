@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-label="Abstract 3D geometry">
+  <defs>
+    <linearGradient id="bg" x1="70" y1="30" x2="560" y2="490" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171717"/>
+      <stop offset="0.48" stop-color="#2c1d17"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="148" y1="86" x2="476" y2="438" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff2e8"/>
+      <stop offset="0.48" stop-color="#ff7b4a"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 1 0 0.5 0 0 0.38 0 0 0.28 0 0.18 0 0 0 1 0"/>
+      <feBlend in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect width="640" height="520" rx="34" fill="url(#bg)"/>
+  <path d="M90 379 319 88l231 292-230 75Z" fill="#0b0f13"/>
+  <path d="M319 88 550 380l-230-44Z" fill="#f6dfcf"/>
+  <path d="M90 379 319 88l1 248Z" fill="#15313a"/>
+  <path d="M90 379 320 336l230 44-230 75Z" fill="#ff7646"/>
+  <path d="M320 336 319 88l105 185Z" fill="#7b4539"/>
+  <path d="M320 336 424 273l126 107Z" fill="#261713"/>
+  <path d="M90 379 225 282l95 54Z" fill="#071015"/>
+  <circle cx="420" cy="126" r="8" fill="#ff7646" filter="url(#glow)"/>
+  <path d="M112 154c97-58 265-58 390 0" fill="none" stroke="#ff7646" stroke-opacity="0.34" stroke-width="2"/>
+  <path d="M128 412c142 42 295 42 424-7" fill="none" stroke="#8ee7ff" stroke-opacity="0.28" stroke-width="2"/>
+  <rect x="60" y="58" width="520" height="404" rx="28" fill="none" stroke="#fff" stroke-opacity="0.08"/>
+</svg>
